@@ -1,0 +1,44 @@
+{
+  "name": "@otools/request",
+  "version": "0.0.1",
+  "description": "http request util based on Fetch API",
+  "main": "lib/index.js",
+  "module": "es/index.js",
+  "dependencies": {
+    "lodash": "^4.17.21",
+    "qs": "^6.9.6",
+    "string-template": "^1.0.0"
+  },
+  "scripts": {
+    "test": "jest",
+    "lint": "eslint ./src --ext=.ts,.tsx",
+    "lint:fix": "eslint ./src --ext=.ts,.tsx --fix",
+    "build": "npm run build:es & npm run build:commonjs & npm run build:types",
+    "build:es": "babel src -d es --extensions .ts",
+    "build:commonjs": "cross-env BABEL_ENV=commonjs babel src -d lib --extensions .ts",
+    "build:types": "tsc",
+    "prepublishOnly": "npm run build"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/owenvip/outils.git"
+  },
+  "author": "owenwong <owen.wong.cn@gmail.com> (https://owenvip.github.io/)",
+  "license": "MIT",
+  "files": [
+    "es",
+    "lib",
+    "index.d.ts"
+  ],
+  "prettier": "@otools/prettier-config-cisdi",
+  "devDependencies": {
+    "@types/lodash": "^4.14.159",
+    "@types/qs": "^6.9.4",
+    "@types/string-template": "^1.0.2",
+    "isomorphic-fetch": "^3.0.0",
+    "mock-http-server": "^1.4.2"
+  }
+}

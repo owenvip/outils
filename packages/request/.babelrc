@@ -1,0 +1,3 @@
+{
+  "presets": ["@otools/babel-preset-lib"]
+}
