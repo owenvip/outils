@@ -7,11 +7,11 @@
 <script>
 import PDFLib from 'pdfjs-dist'
 import 'pdfjs-dist/web/pdf_viewer.css'
-import * as webViewer from 'pdfjs-dist/web/pdf_viewer'
 
+const webViewer = require('pdfjs-dist/web/pdf_viewer')
 const { PDFLinkService, PDFFindController, PDFViewer, EventBus } = webViewer
 
-PDFLib.GlobalWorkerOptions.workerSrc = './pdf.worker.js'
+PDFLib.GlobalWorkerOptions.workerSrc = './worker.js'
 
 export default {
   name: 'PdfReader',

@@ -1,22 +1,18 @@
 {
   "name": "@otools/pdf-reader-vue",
-  "version": "0.0.1",
+  "version": "0.0.4",
   "description": "pdf reader for vue",
   "keywords": [
     "vue",
     "pdf"
   ],
-  "main": "dist/index.umd.js",
-  "module": "dist/index.esm.js",
-  "unpkg": "dist/index.min.js",
+  "main": "index.js",
+  "module": "index.js",
   "scripts": {
     "lint": "eslint ./src --ext=.vue",
     "lint:fix": "eslint ./src --ext=.vue --fix",
-    "build": "npm run build:library",
-    "build:umd": "rollup --config build/rollup.config.js --format umd --file dist/index.umd.js",
-    "build:es": "rollup --config build/rollup.config.js --format es --file dist/index.esm.js",
-    "build:unpkg": "rollup --config build/rollup.config.js --format iife --file dist/index.min.js",
-    "build:library": "rimraf ./dist & npm run build:unpkg & npm run build:es & npm run build:umd & npm run build:unpkg",
+    "build": "rimraf ./index.js & npm run build:es",
+    "build:es": "rollup --config build/rollup.config.js --format es --file index.js",
     "test": "jest"
   },
   "dependencies": {
@@ -47,5 +43,10 @@
   },
   "author": "owenwong <owen.wong.cn@gmail.com> (https://owenvip.github.io/)",
   "license": "MIT",
+  "files": [
+    "worker.js",
+    "index.js",
+    "style"
+  ],
   "prettier": "@otools/prettier-config-otool"
 }

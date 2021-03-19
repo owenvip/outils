@@ -24,7 +24,7 @@ const config = {
       css: false,
       compileTemplate: true,
     }),
-    css({ output: 'index.css' }),
+    css({ output: 'style/index.css' }),
     resolve({
       jsnext: true,
       main: true,
