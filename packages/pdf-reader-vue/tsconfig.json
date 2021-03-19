@@ -1,0 +1,20 @@
+{
+  "compilerOptions": {
+    "target": "es5",
+    "module": "commonjs",
+    "jsx": "preserve",
+    "moduleResolution": "node",
+    "rootDir": "./src",
+    "strict": true,
+    "importHelpers": true,
+    "skipLibCheck": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "emitDeclarationOnly": true,
+    "declaration": true,
+    "declarationDir": ".",
+    "lib": ["esnext", "dom", "dom.iterable", "scripthost"]
+  },
+  "include": ["src"],
+  "exclude": ["node_modules", "lib", "es"]
+}

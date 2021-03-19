@@ -1,0 +1,79 @@
+0 silly argv {
+0 silly argv   _: [ 'bootstrap' ],
+0 silly argv   lernaVersion: '4.0.0',
+0 silly argv   '$0': 'node_modules\\lerna\\cli.js'
+0 silly argv }
+1 notice cli v4.0.0
+2 verbose rootPath E:\sino\outils
+3 silly npmConfig {
+3 silly npmConfig   registry: undefined,
+3 silly npmConfig   npmClient: 'npm',
+3 silly npmConfig   npmClientArgs: [],
+3 silly npmConfig   mutex: undefined
+3 silly npmConfig }
+4 info Bootstrapping 1 package
+5 verbose lifecycle preinstall
+6 silly lifecycle No script for "preinstall" in "@otools/request", continuing
+7 silly hasDependencyInstalled @otools/request @types/lodash
+8 silly hasDependencyInstalled @otools/request @types/qs
+9 silly hasDependencyInstalled @otools/request @types/string-template
+10 silly hasDependencyInstalled @otools/request babel-plugin-transform-class-properties
+11 silly hasDependencyInstalled @otools/request isomorphic-fetch
+12 silly hasDependencyInstalled @otools/request mock-http-server
+13 silly hasDependencyInstalled @otools/request @otools/compile-tools
+14 silly hasDependencyInstalled @otools/request lodash
+15 silly hasDependencyInstalled @otools/request qs
+16 silly hasDependencyInstalled @otools/request string-template
+17 silly root dependencies {}
+18 silly leaf dependencies {}
+19 info Installing external dependencies
+20 verbose actions 1 actions, concurrency 4
+21 silly npmInstallDependencies @otools/request [
+21 silly npmInstallDependencies   '@types/lodash@^4.14.159',
+21 silly npmInstallDependencies   '@types/qs@^6.9.4',
+21 silly npmInstallDependencies   '@types/string-template@^1.0.2',
+21 silly npmInstallDependencies   'babel-plugin-transform-class-properties@^6.24.1',
+21 silly npmInstallDependencies   'isomorphic-fetch@^3.0.0',
+21 silly npmInstallDependencies   'mock-http-server@^1.4.2',
+21 silly npmInstallDependencies   '@otools/compile-tools@0.0.4',
+21 silly npmInstallDependencies   'lodash@^4.17.21',
+21 silly npmInstallDependencies   'qs@^6.9.6',
+21 silly npmInstallDependencies   'string-template@^1.0.0'
+21 silly npmInstallDependencies ]
+22 silly npmInstallDependencies backup E:\sino\outils\packages\request\package.json
+23 silly npmInstallDependencies writing tempJson {
+23 silly npmInstallDependencies   name: '@otools/request',
+23 silly npmInstallDependencies   version: '0.0.1',
+23 silly npmInstallDependencies   description: 'http request util based on Fetch API',
+23 silly npmInstallDependencies   main: 'lib/index.js',
+23 silly npmInstallDependencies   module: 'es/index.js',
+23 silly npmInstallDependencies   dependencies: {
+23 silly npmInstallDependencies     '@otools/compile-tools': '0.0.4',
+23 silly npmInstallDependencies     lodash: '^4.17.21',
+23 silly npmInstallDependencies     qs: '^6.9.6',
+23 silly npmInstallDependencies     'string-template': '^1.0.0'
+23 silly npmInstallDependencies   },
+23 silly npmInstallDependencies   publishConfig: { access: 'public' },
+23 silly npmInstallDependencies   repository: { type: 'git', url: 'https://github.com/owenvip/outils.git' },
+23 silly npmInstallDependencies   author: 'owenwong <owen.wong.cn@gmail.com> (https://owenvip.github.io/)',
+23 silly npmInstallDependencies   license: 'MIT',
+23 silly npmInstallDependencies   files: [ 'es', 'lib', 'index.d.ts' ],
+23 silly npmInstallDependencies   prettier: '@otools/prettier-config-cisdi',
+23 silly npmInstallDependencies   devDependencies: {
+23 silly npmInstallDependencies     '@types/lodash': '^4.14.159',
+23 silly npmInstallDependencies     '@types/qs': '^6.9.4',
+23 silly npmInstallDependencies     '@types/string-template': '^1.0.2',
+23 silly npmInstallDependencies     'babel-plugin-transform-class-properties': '^6.24.1',
+23 silly npmInstallDependencies     'isomorphic-fetch': '^3.0.0',
+23 silly npmInstallDependencies     'mock-http-server': '^1.4.2'
+23 silly npmInstallDependencies   }
+23 silly npmInstallDependencies }
+24 silly getNpmExecOpts E:\sino\outils\packages\request undefined
+25 silly npmInstall [ 'npm', [ 'install' ] ]
+26 silly npmInstallDependencies cleanup E:\sino\outils\packages\request\package.json
+27 error Error: ENOENT: no such file or directory, rename 'E:\sino\outils\packages\request\package.json.lerna_backup' -> 'E:\sino\outils\packages\request\package.json'
+27 error     at Object.renameSync (fs.js:772:3)
+27 error     at cleanup (E:\sino\outils\node_modules\@lerna\npm-install\npm-install.js:70:10)
+27 error     at done (E:\sino\outils\node_modules\@lerna\npm-install\npm-install.js:78:7)
+27 error     at E:\sino\outils\node_modules\@lerna\npm-install\npm-install.js:94:19
+27 error     at processTicksAndRejections (internal/process/task_queues.js:93:5)
