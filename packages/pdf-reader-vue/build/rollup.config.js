@@ -21,7 +21,7 @@ const config = {
   },
   plugins: [
     vue({
-      css: false,
+      target: 'browser',
       compileTemplate: true,
     }),
     css({ output: 'style/index.css' }),
