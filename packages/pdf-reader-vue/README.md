@@ -1,4 +1,4 @@
-# @cisdi/data-provider-vue
+# @otools/pdf-reader-vue
 
 > pdf reader for vue
 
@@ -14,4 +14,6 @@ npm i @otools/pdf-reader-vue
 
 ```js
 import PdfReader from '@otools/pdf-reader-vue'
+
+Vue.use(PdfViewer)
 ```

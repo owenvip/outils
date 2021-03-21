@@ -39,8 +39,5 @@
     "rollup-plugin-vue": "^6.0.0"
   },
   "dependencies": {},
-  "keywords": [
-    "cisdi"
-  ],
   "prettier": "@otools/prettier-config-otool"
 }
