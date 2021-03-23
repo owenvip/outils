@@ -11,7 +11,7 @@ import 'pdfjs-dist/web/pdf_viewer.css'
 const webViewer = require('pdfjs-dist/web/pdf_viewer')
 const { PDFLinkService, PDFFindController, PDFViewer, EventBus } = webViewer
 
-PDFLib.GlobalWorkerOptions.workerSrc = './worker.js'
+PDFLib.GlobalWorkerOptions.workerSrc = './pdf.worker.js'
 
 export default {
   name: 'PdfReader',
@@ -165,21 +165,11 @@ export default {
 }
 </script>
 
-<style lang="less">
-.viewer-container {
-  overflow-x: hidden;
-  overflow-y: auto;
-  padding: 24px;
-  position: absolute;
-  box-sizing: border-box;
-  width: 100%;
-  height: 100%;
-  .pdfViewer .page {
-    border: none;
-    margin: 16px auto 0;
-    &:first-of-type {
-      margin-top: 0;
-    }
-  }
+<style lang="css">
+.pdfViewer .page {
+  border: none;
+}
+.pdfViewer .page:first-of-type {
+  margin-top: 0;
 }
 </style>
