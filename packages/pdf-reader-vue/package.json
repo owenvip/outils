@@ -16,8 +16,7 @@
     "test": "jest"
   },
   "dependencies": {
-    "@vue/compiler-sfc": "^3.0.7",
-    "pdfjs-dist": "^2.0.943"
+    "pdfjs-dist": "2.0.943"
   },
   "devDependencies": {
     "@otools/compile-tools": "0.0.4",
