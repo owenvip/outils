@@ -1,6 +1,6 @@
 <template>
   <div class="viewer-container" ref="container">
-    <div class="pdfViewer" ref="viewer" />
+    <div class="pdfViewer" ref="viewer"></div>
   </div>
 </template>
 

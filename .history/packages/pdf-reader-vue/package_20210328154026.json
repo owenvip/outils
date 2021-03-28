@@ -11,11 +11,15 @@
   "scripts": {
     "lint": "eslint ./src --ext=.vue",
     "lint:fix": "eslint ./src --ext=.vue --fix",
-    "build": "vue-cli-service build --target lib --name pdf-reader-vue src/index.vue",
+    "build": "vue-cli-service build --target lib --name pdf-reader-vue ./src/index.vue",
     "build:es": "rollup --config rollup.config.js --format es --file index.js",
     "test": "jest"
   },
   "dependencies": {
+    "babel-eslint": "^10.1.0",
+    "eslint": "^7.22.0",
+    "eslint-loader": "^4.0.2",
+    "eslint-plugin-vue": "^7.8.0",
     "pdfjs-dist": "2.0.943"
   },
   "devDependencies": {
@@ -27,16 +31,15 @@
     "@vue/cli-plugin-babel": "^4.5.8",
     "@vue/cli-plugin-eslint": "^4.5.8",
     "@vue/cli-service": "^4.5.8",
+    "@vue/compiler-sfc": "^3.0.2",
     "@vue/eslint-config-prettier": "^6.0.0",
-    "babel-eslint": "^10.1.0",
-    "babel-plugin-transform-object-rest-spread": "^6.26.0",
     "rollup": "^2.33.0",
     "rollup-plugin-commonjs": "^10.1.0",
     "rollup-plugin-css-only": "^2.1.0",
     "rollup-plugin-filesize": "^9.0.2",
     "rollup-plugin-terser": "^7.0.2",
     "rollup-plugin-vue": "^5.1.6",
-    "vue-template-compiler": "^2.6.11"
+    "vue-template-compiler": "^2.6.12"
   },
   "peerDependencies": {
     "vue": ">=2.6.0"
@@ -55,18 +58,23 @@
     "index.js"
   ],
   "prettier": "@otools/prettier-config-otool",
-  "eslintConfig": {
+  "eslintConfig":{ 
     "root": true,
-    "env": {
-      "node": true
-    },
-    "extends": [
-      "plugin:vue/essential",
-      "eslint:recommended"
-    ],
-    "rules": {},
-    "parserOptions": {
-      "parser": "babel-eslint"
-    }
-  }
+    "env": {
+       "node": true
+    },
+  "extends": [
+  
+            "plugin:vue/essential"
+  
+          ],
+  
+          "rules": {},
+  
+          "parserOptions": {
+  
+            "parser": "babel-eslint"
+  
+          }
+}
 }
