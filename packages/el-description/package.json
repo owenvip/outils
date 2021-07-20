@@ -1,6 +1,6 @@
 {
   "name": "@otools/el-description",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "description componet based on element ui",
   "keywords": [
     "vue"
@@ -36,8 +36,8 @@
     "vue-template-compiler": "^2.6.11"
   },
   "peerDependencies": {
-    "vue": "^2.6.11",
-    "element-ui": ">=2.15.3"
+    "element-ui": ">=2.15.3",
+    "vue": "^2.6.11"
   },
   "publishConfig": {
     "access": "public"
