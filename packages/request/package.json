@@ -16,7 +16,7 @@
   },
 	"dependencies": {
 		"lodash": "^4.17.21",
-		"qs": "^6.9.6",
+		"qs": "^6.10.1",
 		"string-template": "^1.0.0"
 	},
 	"publishConfig": {
@@ -35,11 +35,11 @@
 	],
 	"prettier": "@otools/prettier-config-otool",
 	"devDependencies": {
-		"@types/lodash": "^4.14.159",
-		"@types/qs": "^6.9.4",
+		"@types/lodash": "^4.14.171",
+		"@types/qs": "^6.9.7",
 		"@types/string-template": "^1.0.2",
 		"isomorphic-fetch": "^3.0.0",
-		"mock-http-server": "^1.4.2",
-		"@otools/compile-tools": "0.0.4"
+		"mock-http-server": "^1.4.4",
+		"@otools/compile-tools": "0.0.12"
 	}
 }
