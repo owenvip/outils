@@ -56,7 +56,7 @@ export default {
 }
 </script>
 
-<style scoped lang="scss">
+<style scoped lang="css">
 .desc-item {
   border-right: 1px solid #ebeef5;
   border-bottom: 1px solid #ebeef5;
@@ -85,25 +85,27 @@ export default {
   height: 100%;
   display: flex;
   align-items: center;
+  box-sizing: border-box;
 }
 .desc-item .desc-item-content .desc-item-value {
   background: #fff;
-  padding: 12px 16px;
   flex-grow: 1;
   overflow: hidden;
   word-break: break-all;
   height: 100%;
   display: flex;
   align-items: center;
-  color: #444;
-  span {
-    color: #aaa;
-  }
+  border: 1px solid #ebeef5;
+  border-right-width: 0;
+  border-left-width: 0;
+  padding-left: 10px;
 }
-.desc-item .desc-item-content.small {
-  .desc-item-label,
-  .desc-item-value {
-    padding: 10px 14px;
-  }
+.desc-item .desc-item-content .desc-item-value span {
+  color: #aaa;
+}
+
+.desc-item .desc-item-content.small .desc-item-label,
+.desc-item .desc-item-content.small .desc-item-value {
+  padding: 10px 14px;
 }
 </style>

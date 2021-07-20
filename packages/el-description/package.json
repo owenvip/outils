@@ -1,7 +1,7 @@
 {
   "name": "@otools/el-description",
   "version": "0.1.0",
-  "description": "an element-ui style description componet for vue",
+  "description": "description componet based on element ui",
   "keywords": [
     "vue"
   ],
@@ -36,7 +36,8 @@
     "vue-template-compiler": "^2.6.11"
   },
   "peerDependencies": {
-    "vue": "^2.6.11"
+    "vue": "^2.6.11",
+    "element-ui": ">=2.15.3"
   },
   "publishConfig": {
     "access": "public"
@@ -48,6 +49,7 @@
   "author": "owenwong <owen.wong.cn@gmail.com> (https://owenvip.github.io/)",
   "license": "MIT",
   "files": [
+    "index.css",
     "index.js"
   ],
   "prettier": "@otools/prettier-config-otool",
