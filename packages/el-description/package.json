@@ -1,6 +1,6 @@
 {
   "name": "@otools/el-description",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "an element-ui style description componet for vue",
   "keywords": [
     "vue"

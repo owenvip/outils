@@ -1,19 +1,19 @@
 {
 	"name": "@otools/request",
-	"version": "0.0.1",
+	"version": "0.1.0",
 	"description": "http request util based on Fetch API",
 	"main": "lib/index.js",
 	"module": "es/index.js",
 	"scripts": {
-    "test": "jest",
-    "lint": "eslint ./src --ext=.ts",
-    "lint:fix": "eslint ./src --ext=.ts --fix",
-    "build": "npm run build:es & npm run build:commonjs & npm run build:types",
-    "build:es": "babel src -d es --extensions .ts",
-    "build:commonjs": "cross-env BABEL_ENV=commonjs babel src -d lib --extensions .ts",
-    "build:types": "tsc",
-    "prepublishOnly": "npm run build"
-  },
+		"test": "jest",
+		"lint": "eslint ./src --ext=.ts",
+		"lint:fix": "eslint ./src --ext=.ts --fix",
+		"build": "npm run build:es & npm run build:commonjs & npm run build:types",
+		"build:es": "babel src -d es --extensions .ts",
+		"build:commonjs": "cross-env BABEL_ENV=commonjs babel src -d lib --extensions .ts",
+		"build:types": "tsc",
+		"prepublishOnly": "npm run build"
+	},
 	"dependencies": {
 		"lodash": "^4.17.21",
 		"qs": "^6.10.1",
@@ -35,11 +35,11 @@
 	],
 	"prettier": "@otools/prettier-config-otool",
 	"devDependencies": {
+		"@otools/compile-tools": "0.0.12",
 		"@types/lodash": "^4.14.171",
 		"@types/qs": "^6.9.7",
 		"@types/string-template": "^1.0.2",
 		"isomorphic-fetch": "^3.0.0",
-		"mock-http-server": "^1.4.4",
-		"@otools/compile-tools": "0.0.12"
+		"mock-http-server": "^1.4.4"
 	}
 }
