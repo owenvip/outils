@@ -1,0 +1,38 @@
+{
+  "name": "@otools/websocket",
+  "version": "0.0.0",
+  "description": "websocket util for browser",
+  "main": "lib/index.js",
+  "module": "es/index.js",
+  "scripts": {
+    "test": "jest",
+    "lint": "eslint ./src --ext=.ts",
+    "lint:fix": "eslint ./src --ext=.ts --fix",
+    "build": "npm run build:es & npm run build:commonjs & npm run build:types",
+    "build:es": "babel src -d es --extensions .ts",
+    "build:commonjs": "cross-env BABEL_ENV=commonjs babel src -d lib --extensions .ts",
+    "build:types": "tsc",
+    "prepublishOnly": "npm run build"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/owenvip/outils.git"
+  },
+  "author": "owenwong <owen.wong.cn@gmail.com> (https://owenvip.github.io/)",
+  "license": "MIT",
+  "files": [
+    "es",
+    "lib",
+    "index.d.ts"
+  ],
+  "prettier": "@otools/prettier-config-otool",
+  "devDependencies": {
+    "@otools/compile-tools": "0.0.12"
+  },
+  "dependencies": {
+    "babel-plugin-import": "^1.13.3"
+  }
+}

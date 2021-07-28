@@ -4,4 +4,4 @@ es
 lib
 *.d.ts
 .idea
-.DS_Store
+*.lock
