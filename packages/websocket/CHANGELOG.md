@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.2.0](https://github.com/owenvip/outils/compare/v0.1.3...v0.2.0) (2021-07-28)
+
+
+### Features
+
+* websocket util ([bcd2192](https://github.com/owenvip/outils/commit/bcd219227f122d236f6de17732fddaa66e06b485))
+
+
+
+
+
 # 0.1.0 (2021-07-20)
 
 
