@@ -1,0 +1,7 @@
+node_modules
+coverage
+es
+lib
+*.d.ts
+.idea
+*.lock

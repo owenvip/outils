@@ -1,0 +1,4 @@
+{
+  "presets": ["@otools/babel-preset-otool"],
+  "plugins": ["@babel/plugin-proposal-class-properties"]
+}
