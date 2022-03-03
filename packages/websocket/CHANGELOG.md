@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.4.0](https://github.com/owenvip/outils/compare/v0.3.0...v0.4.0) (2022-03-03)
+
+
+### Features
+
+* request add timeout and error handler function ([b32e60c](https://github.com/owenvip/outils/commit/b32e60cee77643a4282e16f1a47ce4cd648217dd))
+
+
+
+
+
 # [0.3.0](https://github.com/owenvip/outils/compare/v0.2.0...v0.3.0) (2022-02-09)
 
 **Note:** Version bump only for package @otools/websocket
