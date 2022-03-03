@@ -50,12 +50,15 @@ export type BeforeRequestFunc = (req: Req) => Req | Promise<Req>
 export type AfterRequestFunc = <T = any>(
   res: Res<T>
 ) => Res<T> | Promise<Res<T>>
+export type ErrHandlerFunc = (err: Error) => void
 
 export interface ReqOption {
   baseURL: string
   headers: ReqHeader
   beforeRequest: BeforeRequestFunc
   afterRequest: AfterRequestFunc
+  timeout?: number
+  errHandler?: ErrHandlerFunc
 }
 
 export default class Request {
@@ -63,6 +66,8 @@ export default class Request {
   public defaultHeaders: ReqHeader
   public beforeRequest: BeforeRequestFunc
   public afterRequest: AfterRequestFunc
+  public errHandler: ErrHandlerFunc
+  public timeout: number
 
   constructor(options: Partial<ReqOption> = {}) {
     const {
@@ -70,12 +75,16 @@ export default class Request {
       headers = {},
       beforeRequest = noop,
       afterRequest = noop,
+      errHandler = noop,
+      timeout = 0,
     } = options
 
     this.baseURL = baseURL
     this.defaultHeaders = headers
     this.beforeRequest = beforeRequest
     this.afterRequest = afterRequest
+    this.errHandler = errHandler
+    this.timeout = timeout
   }
 
   private getBody = async (res: Response) => {
@@ -167,7 +176,17 @@ export default class Request {
       if (typeof this.beforeRequest === 'function') {
         req = await this.beforeRequest(req)
       }
-      let res: Res = await fetch(req.url || '', req as RequestInit)
+      const fetchPromise = [fetch(req.url || '', req as RequestInit)]
+      if (this.timeout) {
+        fetchPromise.push(
+          new Promise((_, reject) => {
+            setTimeout(() => {
+              reject('error, request timeout.')
+            }, this.timeout)
+          })
+        )
+      }
+      let res: Res = await Promise.race(fetchPromise)
       const data = await this.getBody(res)
       res.data = data
       if (typeof this.afterRequest === 'function') {
@@ -182,6 +201,9 @@ export default class Request {
       // throw response directly in afterRequest
       if (error.data) {
         throw error.data
+      }
+      if (typeof this.errHandler === 'function') {
+        this.errHandler(error)
       }
       throw error
     }
