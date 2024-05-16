@@ -1,6 +1,6 @@
 {
-  "name": "@otools/websocket",
-  "version": "0.4.0",
+  "name": "@lanzs/websocket",
+  "version": "0.0.1",
   "description": "websocket util for browser",
   "main": "lib/index.js",
   "module": "es/index.js",
@@ -30,9 +30,13 @@
   ],
   "prettier": "@otools/prettier-config-otool",
   "devDependencies": {
-    "@otools/compile-tools": "0.0.12"
+    "@babel/core": "^7.14.6",
+    "@babel/preset-react": "^7.14.5",
+    "@otools/compile-tools": "0.0.12",
+    "babel-plugin-transform-class-properties": "^6.24.1"
   },
   "dependencies": {
+    "@babel/cli": "^7.24.5",
     "babel-plugin-import": "^1.13.3"
   }
 }

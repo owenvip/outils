@@ -8,22 +8,57 @@ export interface Res extends Response {
   [x: string]: any
 }
 
-export default class Websocket {
-  public instance: WebSocket | null
-  public url: string
+export interface HeartCheck {
+  heartBeatMsg: string
+  heartBeatInterval: number
+  reconnectTimeout: number
+  reconnectCount: number
+}
 
-  constructor(url: string) {
+interface State {
+  count: number
+  pingTimer?: ReturnType<typeof setInterval>
+  pongTimer?: ReturnType<typeof setTimeout>
+  pongRes?: Res
+}
+
+type CallBack<T> = (ev: T) => void
+
+function getDefaultHeartCheck(): HeartCheck {
+  return {
+    heartBeatMsg: 'ping',
+    heartBeatInterval: 60 * 1000,
+    reconnectCount: 3,
+    reconnectTimeout: 5 * 1000,
+  }
+}
+
+export default class Websocket {
+  private state: State
+  private instance: WebSocket | null
+  protected url: string
+  protected heartCheck: HeartCheck
+
+  constructor(url: string, heartCheck?: HeartCheck) {
     this.instance = null
-    this.url = url.startsWith('ws://') ? url : `ws://${url}`
+    this.state = {
+      count: 0,
+    }
+    this.url = url
+    this.heartCheck = this.getHeartCheck(heartCheck)
   }
 
-  public connect = (handleConnect?: () => void) => {
+  private getHeartCheck = (options = {}): HeartCheck => ({
+    ...getDefaultHeartCheck(),
+    ...options,
+  })
+
+  public connect = (handleConnect?: WebSocket['onopen']) => {
     try {
       this.instance = new WebSocket(this.url)
+      this.startHeartBeat()
       if (typeof handleConnect === 'function') {
-        if (this.instance) {
-          this.instance.onopen = handleConnect
-        }
+        this.instance.onopen = handleConnect
       }
     } catch (err) {
       throw err
@@ -34,7 +69,7 @@ export default class Websocket {
     this.instance?.send(msg)
   }
 
-  public close = (handleClose?: () => void) => {
+  public close = (handleClose?: WebSocket['onclose']) => {
     if (this.instance) {
       if (typeof handleClose === 'function') {
         this.instance.onclose = handleClose
@@ -43,19 +78,53 @@ export default class Websocket {
     }
   }
 
-  public onMessage = (handleMessage: (res: Res) => void) => {
+  public onMessage = (handleMessage: CallBack<Res>) => {
     if (this.instance) {
       this.instance.onmessage = (e) => {
+        this.state.pongRes = e.data
+        this.state.count = 0
         handleMessage(e.data)
       }
     }
   }
 
-  public onError = (handleError: (e: Event) => void) => {
+  public onError = (handleError: CallBack<Event>) => {
     if (this.instance) {
       this.instance.onerror = (e) => {
         handleError(e)
       }
     }
+  }
+
+  private onClose = () => {
+    if (this.state.count < this.heartCheck.reconnectCount) {
+      this.check()
+      this.state.count++
+    } else {
+      clearInterval(this.state.pingTimer)
+      clearTimeout(this.state.pongTimer)
+      console.error(
+        'WebSocket encountered an error, reconnection failed, the connection has been closed.'
+      )
+      this.close()
+    }
+  }
+
+  private startHeartBeat = () => {
+    this.state.pingTimer = setInterval(() => {
+      this.state.pongRes = undefined
+      this.check()
+    }, this.heartCheck.heartBeatInterval)
+  }
+
+  private check = () => {
+    const { heartBeatMsg, reconnectTimeout } = this.heartCheck
+    this.instance?.send(heartBeatMsg)
+    if (this.state.pongRes) return
+    this.state.pongTimer = setTimeout(() => {
+      if (this.state.pongRes) return
+      // auto-reconnect will be trigger with ws.onclose()
+      this.onClose()
+    }, reconnectTimeout)
   }
 }

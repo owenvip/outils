@@ -12,13 +12,13 @@
 ## Install
 
 ```bash
-npm install @otools/websocket
+npm install @lanzs/websocket
 ```
 
 ## Usage
 
 ```js
-import Websocket from '@otools/websocket'
+import Websocket from '@lanzs/websocket'
 
 const ws = new Websocket('ws://example.com')
 ws.connect(() => {
